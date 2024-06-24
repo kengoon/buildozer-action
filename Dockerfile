@@ -14,7 +14,7 @@ RUN sudo apt-get update && \
     sudo rm -rf /var/lib/apt/lists/*
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt update
-RUN sudo apt-get -y install openjdk-17-jdk
+RUN sudo apt-get -y install openjdk-17-jdk curl
 RUN curl https://sh.rustup.rs -sSf | sh
 RUN rustup toolchain install stable
 RUN rustup default stable
