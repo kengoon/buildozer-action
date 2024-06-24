@@ -15,12 +15,11 @@ RUN sudo apt-get update && \
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt update
 RUN sudo apt-get -y install openjdk-17-jdk curl
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-RUN . $HOME/.cargo/env
-RUN ["/bin/bash", "-c", "source $HOME/.cargo/env"]
-RUN rustup toolchain install stable
-RUN rustup default stable
-RUN rustup --version
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
+    . $HOME/.cargo/env && \
+    rustup toolchain install stable && \
+    rustup default stable && \
+    rustup --version
 
 # Remove a lot of warnings
 # sudo: setrlimit(RLIMIT_CORE): Operation not permitted
