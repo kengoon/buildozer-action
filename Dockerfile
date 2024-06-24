@@ -15,6 +15,7 @@ RUN sudo apt-get update && \
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt update
 RUN sudo apt-get -y install openjdk-17-jdk snapd
+RUN sudo snap install rustup --classic
 RUN rustup toolchain install stable
 RUN rustup default stable
 RUN rustup --version
