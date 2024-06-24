@@ -14,7 +14,10 @@ RUN sudo apt-get update && \
     sudo rm -rf /var/lib/apt/lists/*
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt update
-RUN sudo apt-get -y install openjdk-17-jdk
+RUN sudo apt-get -y install openjdk-17-jdk snapd
+RUN rustup toolchain install stable
+RUN rustup default stable
+RUN rustup --version
 
 # Remove a lot of warnings
 # sudo: setrlimit(RLIMIT_CORE): Operation not permitted
