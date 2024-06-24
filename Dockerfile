@@ -16,8 +16,8 @@ RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt update
 RUN sudo apt-get -y install openjdk-17-jdk curl
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-RUN . "$HOME/.cargo/env"
-RUN source $HOME/.cargo/env
+RUN . $HOME/.cargo/env
+RUN ["/bin/bash", "-c", "source $HOME/.cargo/env"]
 RUN rustup toolchain install stable
 RUN rustup default stable
 RUN rustup --version
