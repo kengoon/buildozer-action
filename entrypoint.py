@@ -25,8 +25,8 @@ def main():
     change_directory(env["INPUT_REPOSITORY_ROOT"], env["INPUT_WORKDIR"])
     apply_patches()
     run_command(env["INPUT_COMMAND"])
-    change_owner("root", repository_root)
     set_output(env["INPUT_REPOSITORY_ROOT"], env["INPUT_WORKDIR"])
+    change_owner("root", repository_root)
 
 
 def change_owner(user, repository_root):
@@ -152,7 +152,7 @@ def set_output(repository_root, workdir):
     path = os.path.normpath(
         os.path.join(repository_root, workdir, "bin", filename)
     )
-    subprocess.check_call(['sudo', 'chmod', 'a+rwx', os.environ['GITHUB_OUTPUT'])
+    subprocess.check_call(['sudo', 'chmod', 'a+rwx', os.environ['GITHUB_OUTPUT']])
     with open(os.environ["GITHUB_OUTPUT"], "a") as gofh:
         print(f'filename={path}', file=gofh)
 
