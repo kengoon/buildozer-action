@@ -152,6 +152,7 @@ def set_output(repository_root, workdir):
     path = os.path.normpath(
         os.path.join(repository_root, workdir, "bin", filename)
     )
+    subprocess.check_call(['sudo', 'chmod', 'a+rwx', os.environ['GITHUB_OUTPUT'])
     with open(os.environ["GITHUB_OUTPUT"], "a") as gofh:
         print(f'filename={path}', file=gofh)
 
